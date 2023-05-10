@@ -14,6 +14,7 @@ With Game discovery APP you can:
 - Node v12.0.0
 - React.js framework
 - Typescript
+- Vite(scaffolded using vite)
 
 ### Installation
 
@@ -23,7 +24,7 @@ With Game discovery APP you can:
    `npm install`
 
 3. Run app
-   `npm start`
+   `npm run dev`
 
 4. To build the app
    `npm run build`
