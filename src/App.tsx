@@ -1,25 +1,34 @@
-import { Flex } from "@chakra-ui/react";
+import { Flex, Grid, GridItem } from "@chakra-ui/react";
 import "./App.css";
+import { genres } from "./components/data";
 import MainContainer from "./components/Main/MainContainer";
 import SideNav from "./components/Side/SideNav";
 import TopNav from "./components/Top/TopNav";
 
 function App() {
   return (
-    <Flex
-      align="start"
-      justify="start"
-      flexDir="column"
-      rowGap={40}
+    <Grid
+      templateAreas={`"header header"
+                  "nav main"
+                  "nav main"`}
+      gridTemplateRows={"1fr 4fr"}
+      gridTemplateColumns={"1fr 4fr"}
+      h="100%"
+      // rowGap={5}
       my={10}
       mx={4}
+      color="blackAlpha.800"
     >
-      <TopNav />
-      <Flex align="center" justify="start" gap={20}>
-        <SideNav />
+      <GridItem pl="2" area={"header"}>
+        <TopNav />
+      </GridItem>
+      <GridItem pl="2" area={"nav"}>
+        <SideNav title="Genres" genres={genres} />
+      </GridItem>
+      <GridItem pl="2" area={"main"}>
         <MainContainer />
-      </Flex>
-    </Flex>
+      </GridItem>
+    </Grid>
   );
 }
 

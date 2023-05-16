@@ -1,23 +1,21 @@
-import {
-  Avatar,
-  Box,
-  Flex,
-  Heading,
-  Stack,
-  Switch,
-  WrapItem,
-} from "@chakra-ui/react";
-import { Image } from "@chakra-ui/react";
+import { Image, Flex, HStack, Switch, Text } from "@chakra-ui/react";
 import Search from "./Search";
+import gameImage from "../../assets/game_unsplash.jpg";
 
 const TopNav = () => {
   return (
     <Flex align="center" justify="space-between" gap={10} w="100%">
-      <WrapItem>
-        <Avatar name="Harriet Ayugi" src="https://bit.ly/harriet" size="lg" />
-      </WrapItem>
+      <Image
+        src={gameImage}
+        alt="Dan Abramov"
+        borderRadius="xl"
+        boxSize="48px"
+      />
       <Search />
-      <Switch colorScheme="teal" size="md" />
+      <HStack>
+        <Switch colorScheme="teal" size="md" />
+        <Text fontSize="xs">Dark Mode</Text>
+      </HStack>
     </Flex>
   );
 };

@@ -1,3 +1,38 @@
+export const genres = [
+  {
+    id: 1,
+    name: "Action",
+  },
+  {
+    id: 2,
+    name: "Strategy",
+  },
+  {
+    id: 3,
+    name: "Puzzle",
+  },
+  {
+    id: 4,
+    name: "Racing",
+  },
+  {
+    id: 5,
+    name: "Sports",
+  },
+  {
+    id: 6,
+    name: "RPG",
+  },
+  {
+    id: 7,
+    name: "Shooter",
+  },
+  {
+    id: 8,
+    name: "Adventure",
+  },
+];
+
 export const items = [
   {
     id: 1,
