@@ -14,7 +14,7 @@ With Game discovery APP you can:
 - Node v12.0.0
 - React.js framework
 - Typescript
-- Vite(scaffolded using vite)
+- Vite(scaffolded using vite) - [https://vitejs.dev/guide/](A build tool that aims to provide a faster and leaner development experience for modern web projects.)
 
 ### Installation
 
