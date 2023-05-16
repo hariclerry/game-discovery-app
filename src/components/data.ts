@@ -35,39 +35,48 @@ export const genres = [
 
 export const items = [
   {
+    id: 0,
+    name: "Esperanza Knox",
+    platform: ["Xbox"],
+  },
+  {
     id: 1,
-    description: "Milk",
-    amount: "$5.00",
-    category: "Groceries",
+    name: "Cooper Patterson",
+    platform: ["Xbox", "PC"],
   },
   {
     id: 2,
-    description: "Cheese",
-    amount: "$6.00",
-    category: "Groceries",
+    name: "Doreen Hunt",
+    platform: ["Xbox", "PC"],
   },
   {
     id: 3,
-    description: "Beans",
-    amount: "$15.00",
-    category: "Store",
+    name: "Hendrix Hyde",
+    platform: ["Xbox", "PC"],
   },
   {
     id: 4,
-    description: "Milk",
-    amount: "$500.00",
-    category: "Store",
+    name: "Nanette Anthony",
+    platform: ["Xbox", "PC"],
   },
   {
     id: 5,
-    description: "Tea",
-    amount: "$5.00",
-    category: "Store",
+    name: "Minerva Kennedy",
+    platform: ["PC"],
   },
   {
     id: 6,
-    description: "Eggs",
-    amount: "$5.00",
-    category: "Store",
+    name: "Suarez Parrish",
+    platform: ["Xbox", "PC"],
+  },
+  {
+    id: 7,
+    name: "Odonnell Giles",
+    platform: ["Xbox", "PC"],
+  },
+  {
+    id: 8,
+    name: "Davidson Savage",
+    platform: ["Xbox"],
   },
 ];

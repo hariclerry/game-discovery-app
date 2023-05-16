@@ -11,7 +11,7 @@ function App() {
       templateAreas={`"header header"
                   "nav main"
                   "nav main"`}
-      gridTemplateRows={"1fr 4fr"}
+      gridTemplateRows={"0.5fr 5fr"}
       gridTemplateColumns={"1fr 4fr"}
       h="100%"
       // rowGap={5}

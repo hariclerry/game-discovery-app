@@ -9,7 +9,7 @@ const Genres = ({ genres }: { genres: { id: number; name: string }[] }) => {
         <HStack key={genre.id} columnGap={2} mb={5}>
           <Image
             src={gameImage}
-            alt="Dan Abramov"
+            alt="alternative"
             borderRadius="xl"
             boxSize="48px"
           />
