@@ -1,11 +1,11 @@
-import { CircularProgress, Grid, GridItem } from "@chakra-ui/react";
+import { CircularProgress, Grid, GridItem, Show } from "@chakra-ui/react";
 import { useState } from "react";
 import "./App.css";
 import { genres, items } from "./components/data";
 import MainContainer from "./components/Main/MainContainer";
 import SideNav from "./components/Side/SideNav";
-import TopNav from "./components/Top/TopNav";
 import useGames from "./hooks/useGames";
+import NavBar from "./components/NavBar/NavBar";
 
 function App() {
   const { games, isLoading } = useGames();
@@ -27,9 +27,10 @@ function App() {
     <>
       {isLoading && <CircularProgress value={30} size="120px" />}
       <Grid
-        templateAreas={`"header header"
-                  "nav main"
-                  "nav main"`}
+        templateAreas={{
+          base: `"nav" "main"`,
+          lg: `"nav nav" "aside main"`,
+        }}
         gridTemplateRows={"0.5fr 5fr"}
         gridTemplateColumns={"1fr 4fr"}
         h="100%"
@@ -38,12 +39,15 @@ function App() {
         mx={4}
         color="blackAlpha.800"
       >
-        <GridItem pl="2" area={"header"}>
-          <TopNav />
-        </GridItem>
         <GridItem pl="2" area={"nav"}>
-          <SideNav title="Genres" genres={genres} />
+          <NavBar />
         </GridItem>
+        <Show above="lg">
+          <GridItem pl="2" area={"aside"}>
+            <SideNav title="Genres" genres={genres} />
+          </GridItem>
+        </Show>
+
         <GridItem pl="2" area={"main"}>
           <MainContainer
             games={filtered!}
