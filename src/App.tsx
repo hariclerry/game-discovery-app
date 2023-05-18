@@ -39,7 +39,7 @@ function App() {
         mx={4}
         color="blackAlpha.800"
       >
-        <GridItem pl="2" area={"nav"}>
+        <GridItem area={"nav"}>
           <NavBar />
         </GridItem>
         <Show above="lg">
