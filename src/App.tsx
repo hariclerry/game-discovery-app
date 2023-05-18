@@ -1,4 +1,4 @@
-import { Flex, Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem } from "@chakra-ui/react";
 import "./App.css";
 import { genres } from "./components/data";
 import MainContainer from "./components/Main/MainContainer";
