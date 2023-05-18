@@ -12,7 +12,7 @@ const useGames = () => {
     const { request, cancel } = userService.getAll<Game[]>();
     request
       .then((res) => {
-        //   setGames(res.data)
+        setGames(res.data.slice(0, 10));
         setLoading(false);
       })
       .catch((err) => {

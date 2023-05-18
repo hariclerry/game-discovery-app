@@ -3,15 +3,28 @@ import { ChatIcon } from "@chakra-ui/icons";
 import { items } from "../data";
 import Cards from "./Cards";
 import Dropdown from "./Dropdown";
+import { Game } from "../../services/game-service";
 
-const MainContainer = () => {
+const MainContainer = ({
+  games,
+  selected,
+  onChange,
+}: {
+  games: {
+    id: number;
+    name: string;
+    platform: string[];
+  }[];
+  selected?: string;
+  onChange: (selected: string) => void;
+}) => {
   return (
     <>
       <Heading size="2xl">Games </Heading>
       <HStack justify="space-between" gap={5} w="30%" mt={10}>
         <Dropdown
-          onChange={() => console.log("clicked")}
-          options={["PC", "PlayStation", "Xbox One", "iOS", "Android"]}
+          onChange={onChange}
+          options={["PC", "PlayStation", "Xbox", "iOS", "Android"]}
           placeholderText="Platforms"
         />
         <Dropdown
@@ -25,13 +38,14 @@ const MainContainer = () => {
         templateColumns="repeat(auto-fill, minmax(300px, 1fr))"
         mt={8}
       >
-        {items.map((item, index) => (
-          <Cards
-            data={item}
-            count={index * 3}
-            icon={<ChatIcon color="green" />}
-          />
-        ))}
+        {games &&
+          games.map((item, index) => (
+            <Cards
+              data={item}
+              count={index * 3}
+              icon={<ChatIcon color="green" />}
+            />
+          ))}
       </SimpleGrid>
     </>
   );

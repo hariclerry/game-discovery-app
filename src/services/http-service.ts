@@ -7,7 +7,7 @@ class HttpService {
   //T is a generic type - acts as a placeholder for a type
   getAll<T>() {
     const controller = new AbortController();
-    const request = apiClient.get<T[]>(this.endpoint, {
+    const request = apiClient.get<T>(this.endpoint, {
       signal: controller.signal,
     });
     return { request, cancel: () => controller.abort() };

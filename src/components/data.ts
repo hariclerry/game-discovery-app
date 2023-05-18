@@ -37,7 +37,7 @@ export const items = [
   {
     id: 0,
     name: "Esperanza Knox",
-    platform: ["Xbox"],
+    platform: ["iOS"],
   },
   {
     id: 1,

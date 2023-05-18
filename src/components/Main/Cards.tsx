@@ -8,20 +8,19 @@ import {
   Text,
   HStack,
 } from "@chakra-ui/react";
+import { Game } from "../../services/game-service";
 import PlatformIcons from "./PlatformIcons";
 
-type Data = {
-  id: number | string;
-  name: string;
-  //   imgUrl: string;
-  platform: string[];
-};
 const Cards = ({
   data,
   count,
   icon,
 }: {
-  data: Data;
+  data: {
+    id: number;
+    name: string;
+    platform: string[];
+  };
   count: number;
   icon: React.ReactNode;
 }) => {
@@ -39,7 +38,7 @@ const Cards = ({
           spacing="3"
           justifyContent="space-between"
         >
-          <PlatformIcons data={data.platform} />
+          {/* <PlatformIcons data={data.platform} /> */}
           <Badge colorScheme="green" pl={1.5} pr={1.5} borderRadius="md">
             <Text fontSize="md" color="green.700">
               {" "}

@@ -7,11 +7,14 @@ const Dropdown = ({
 }: {
   placeholderText: string;
   options: string[];
-  onChange: () => void;
+  onChange: (selected: string) => void;
 }) => {
   return (
     <FormControl>
-      <Select placeholder={placeholderText}>
+      <Select
+        placeholder={placeholderText}
+        onChange={(e) => onChange(e.target.value)}
+      >
         {options.map((option) => (
           <option key={option}>{option}</option>
         ))}
