@@ -5,6 +5,7 @@ import Cards from "./Cards";
 import Dropdown from "./Dropdown";
 import { Game } from "../../services/game-service";
 import useGames from "../../hooks/useGames";
+import CardSkeleton from "./CardSkeleton";
 
 const GameGrid = ({
   selected,
@@ -14,6 +15,7 @@ const GameGrid = ({
   onChange: (selected: string) => void;
 }) => {
   const { games, isLoading, error } = useGames();
+  const skeletons = [1, 2, 3, 4, 5, 6];
   // console.log("herregamesss-----", games);
   return (
     <>
@@ -38,6 +40,8 @@ const GameGrid = ({
         spacing={10}
         padding="10px"
       >
+        {isLoading &&
+          skeletons.map((skeleton) => <CardSkeleton key={skeleton} />)}
         {games.map((game, index) => (
           <Cards key={game.id} game={game} icon={<ChatIcon color="green" />} />
         ))}
