@@ -6,6 +6,7 @@ import Dropdown from "./Dropdown";
 import { Game } from "../../services/game-service";
 import useGames from "../../hooks/useGames";
 import CardSkeleton from "./CardSkeleton";
+import CardContainer from "./CardContainer";
 
 const GameGrid = ({
   selected,
@@ -41,9 +42,20 @@ const GameGrid = ({
         padding="10px"
       >
         {isLoading &&
-          skeletons.map((skeleton) => <CardSkeleton key={skeleton} />)}
+          skeletons.map((skeleton) => (
+            <CardContainer>
+              <CardSkeleton key={skeleton} />
+            </CardContainer>
+          ))}
         {games.map((game, index) => (
-          <Cards key={game.id} game={game} icon={<ChatIcon color="green" />} />
+          <CardContainer>
+            {" "}
+            <Cards
+              key={game.id}
+              game={game}
+              icon={<ChatIcon color="green" />}
+            />
+          </CardContainer>
         ))}
       </SimpleGrid>
     </>
