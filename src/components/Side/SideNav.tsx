@@ -11,7 +11,7 @@ const SideNav = ({
   return (
     <Flex justify="space-between" gap={5} w="100%" flexDirection="column">
       <Heading size="xl">{title}</Heading>
-      <Genres genres={genres} />
+      <Genres />
     </Flex>
   );
 };

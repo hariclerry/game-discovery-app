@@ -1,11 +1,13 @@
-import { Box, Flex, HStack, Text } from "@chakra-ui/react";
+import { Flex, HStack, Text } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
 import gameImage from "../../assets/game_unsplash.jpg";
+import useGenres from "../../hooks/useGenres";
 
-const Genres = ({ genres }: { genres: { id: number; name: string }[] }) => {
+const Genres = () => {
+  const { data } = useGenres();
   return (
     <Flex w="100%" justifyContent="space-between" flexDirection="column">
-      {genres.map((genre) => (
+      {data.map((genre) => (
         <HStack key={genre.id} columnGap={2} mb={5}>
           <Image
             src={gameImage}
@@ -21,3 +23,6 @@ const Genres = ({ genres }: { genres: { id: number; name: string }[] }) => {
 };
 
 export default Genres;
+function useData(): { data: any } {
+  throw new Error("Function not implemented.");
+}

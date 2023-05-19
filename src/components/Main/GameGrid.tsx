@@ -3,7 +3,7 @@ import { ChatIcon } from "@chakra-ui/icons";
 import { items } from "../data";
 import Cards from "./Cards";
 import Dropdown from "./Dropdown";
-import { Game } from "../../services/game-service";
+import { Game } from "../../hooks/useGames";
 import useGames from "../../hooks/useGames";
 import CardSkeleton from "./CardSkeleton";
 import CardContainer from "./CardContainer";
@@ -15,7 +15,7 @@ const GameGrid = ({
   selected?: string;
   onChange: (selected: string) => void;
 }) => {
-  const { games, isLoading, error } = useGames();
+  const { data, isLoading, error } = useGames();
   const skeletons = [1, 2, 3, 4, 5, 6];
   // console.log("herregamesss-----", games);
   return (
@@ -47,7 +47,7 @@ const GameGrid = ({
               <CardSkeleton key={skeleton} />
             </CardContainer>
           ))}
-        {games.map((game, index) => (
+        {data.map((game, index) => (
           <CardContainer>
             {" "}
             <Cards
