@@ -5,7 +5,7 @@ import Cards from "./Cards";
 import Dropdown from "./Dropdown";
 import { Game } from "../../services/game-service";
 
-const MainContainer = ({
+const GameGrid = ({
   games,
   selected,
   onChange,
@@ -18,6 +18,7 @@ const MainContainer = ({
   selected?: string;
   onChange: (selected: string) => void;
 }) => {
+  // const { games, isLoading } = useGames();
   return (
     <>
       <Heading size="2xl">Games </Heading>
@@ -51,4 +52,7 @@ const MainContainer = ({
   );
 };
 
-export default MainContainer;
+export default GameGrid;
+function useGames(): { games: any; isLoading: any } {
+  throw new Error("Function not implemented.");
+}

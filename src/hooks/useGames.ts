@@ -1,6 +1,9 @@
 import { CanceledError } from "axios";
 import { useEffect, useState } from "react";
-import userService, { Game } from "../services/game-service";
+import userService, {
+  FetchGamesResponse,
+  Game,
+} from "../services/game-service";
 
 const useGames = () => {
   const [games, setGames] = useState<Game[]>([]);
@@ -9,10 +12,10 @@ const useGames = () => {
 
   useEffect(() => {
     setLoading(true);
-    const { request, cancel } = userService.getAll<Game[]>();
+    const { request, cancel } = userService.getAll<FetchGamesResponse>();
     request
       .then((res) => {
-        setGames(res.data.slice(0, 10));
+        setGames(res.data.results);
         setLoading(false);
       })
       .catch((err) => {

@@ -2,16 +2,15 @@ import { CircularProgress, Grid, GridItem, Show } from "@chakra-ui/react";
 import { useState } from "react";
 import "./App.css";
 import { genres, items } from "./components/data";
-import MainContainer from "./components/Main/MainContainer";
+import GameGrid from "./components/Main/GameGrid";
 import SideNav from "./components/Side/SideNav";
 import useGames from "./hooks/useGames";
 import NavBar from "./components/NavBar/NavBar";
 
 function App() {
-  const { games, isLoading } = useGames();
+  const { isLoading } = useGames();
 
   const [selected, setSelected] = useState("Platforms");
-
   const filteredItems = () => {
     if (selected === "Platforms") return items;
     return items
@@ -49,7 +48,7 @@ function App() {
         </Show>
 
         <GridItem pl="2" area={"main"}>
-          <MainContainer
+          <GameGrid
             games={filtered!}
             selected={selected}
             onChange={setSelected}

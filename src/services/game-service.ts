@@ -1,9 +1,12 @@
 import create from "./http-service";
 
-export interface Game {
+export type Game = {
   id: number;
-  title: string;
-  body: string;
+  name: string;
+};
+export interface FetchGamesResponse {
+  count: number;
+  results: Game[];
 }
 
 export default create("/posts");
