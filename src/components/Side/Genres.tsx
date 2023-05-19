@@ -1,24 +1,26 @@
-import { Flex, HStack, Text } from "@chakra-ui/react";
+import { Flex, HStack, List, ListItem, Text } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
-import gameImage from "../../assets/game_unsplash.jpg";
 import useGenres from "../../hooks/useGenres";
+import getCroppedImageUrl from "../../services/image-url";
 
 const Genres = () => {
   const { data } = useGenres();
   return (
-    <Flex w="100%" justifyContent="space-between" flexDirection="column">
+    <List>
       {data.map((genre) => (
-        <HStack key={genre.id} columnGap={2} mb={5}>
-          <Image
-            src={gameImage}
-            alt="alternative"
-            borderRadius="xl"
-            boxSize="48px"
-          />
-          <Text fontSize="md">{genre.name}</Text>
-        </HStack>
+        <ListItem key={genre.id} paddingY="10px">
+          <HStack key={genre.id}>
+            <Image
+              src={getCroppedImageUrl(genre.image_background)}
+              alt="alternative"
+              borderRadius={8}
+              boxSize="35px"
+            />
+            <Text fontSize="lg">{genre.name}</Text>
+          </HStack>
+        </ListItem>
       ))}
-    </Flex>
+    </List>
   );
 };
 

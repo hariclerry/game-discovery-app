@@ -2,11 +2,6 @@ import { CanceledError } from "axios";
 import { useEffect, useState } from "react";
 import create from "../services/http-service";
 
-export interface Genre {
-  id: number;
-  name: string;
-}
-
 interface FetchResponse<T> {
   count: number;
   results: T[];
