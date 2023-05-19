@@ -1,28 +1,27 @@
-import { Heading, HStack, SimpleGrid } from "@chakra-ui/react";
+import { Heading, HStack, SimpleGrid, Text } from "@chakra-ui/react";
 import { ChatIcon } from "@chakra-ui/icons";
 import { items } from "../data";
 import Cards from "./Cards";
 import Dropdown from "./Dropdown";
 import { Game } from "../../services/game-service";
+import useGames from "../../hooks/useGames";
 
 const GameGrid = ({
-  games,
   selected,
   onChange,
 }: {
-  games: {
-    id: number;
-    name: string;
-    platform: string[];
-  }[];
   selected?: string;
   onChange: (selected: string) => void;
 }) => {
-  // const { games, isLoading } = useGames();
+  const { games, isLoading, error } = useGames();
+  // console.log("herregamesss-----", games);
   return (
     <>
+      {
+        // error && <Text>{error} </Text>
+      }
       <Heading size="2xl">Games </Heading>
-      <HStack justify="space-between" gap={5} w="30%" mt={10}>
+      {/* <HStack justify="space-between" gap={5} w="30%" mt={10}>
         <Dropdown
           onChange={onChange}
           options={["PC", "PlayStation", "Xbox", "iOS", "Android"]}
@@ -33,26 +32,18 @@ const GameGrid = ({
           options={["This week", "Popularity"]}
           placeholderText="Order by: Relevance"
         />
-      </HStack>
+      </HStack> */}
       <SimpleGrid
-        spacing={4}
-        templateColumns="repeat(auto-fill, minmax(300px, 1fr))"
-        mt={8}
+        columns={{ sm: 1, md: 2, lg: 2, xl: 3, "2xl": 4 }}
+        spacing={10}
+        padding="10px"
       >
-        {games &&
-          games.map((item, index) => (
-            <Cards
-              data={item}
-              count={index * 3}
-              icon={<ChatIcon color="green" />}
-            />
-          ))}
+        {games.map((game, index) => (
+          <Cards key={game.id} game={game} icon={<ChatIcon color="green" />} />
+        ))}
       </SimpleGrid>
     </>
   );
 };
 
 export default GameGrid;
-function useGames(): { games: any; isLoading: any } {
-  throw new Error("Function not implemented.");
-}

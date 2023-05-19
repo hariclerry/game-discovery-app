@@ -30,10 +30,7 @@ function App() {
           base: `"nav" "main"`,
           lg: `"nav nav" "aside main"`,
         }}
-        gridTemplateRows={"0.5fr 5fr"}
-        gridTemplateColumns={"1fr 4fr"}
         h="100%"
-        // rowGap={5}
         my={10}
         mx={4}
         color="blackAlpha.800"
@@ -48,11 +45,7 @@ function App() {
         </Show>
 
         <GridItem pl="2" area={"main"}>
-          <GameGrid
-            games={filtered!}
-            selected={selected}
-            onChange={setSelected}
-          />
+          <GameGrid selected={selected} onChange={setSelected} />
         </GridItem>
       </Grid>
     </>

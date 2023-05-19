@@ -1,22 +1,41 @@
 import { PlusSquareIcon, SunIcon } from "@chakra-ui/icons";
-import { HStack, VStack } from "@chakra-ui/react";
+import {
+  FaWindows,
+  FaPlaystation,
+  FaXbox,
+  FaApple,
+  FaLinux,
+  FaAndroid,
+} from "react-icons/fa";
+import { MdPhoneIphone } from "react-icons/md";
+import { SiNintendo } from "react-icons/si";
+import { BsGlobe } from "react-icons/bs";
+import { HStack, Icon, Text, VStack } from "@chakra-ui/react";
+import { Game, Platform } from "../../services/game-service";
+import { IconType } from "react-icons";
 
-const Icons = (iconType: string) => {
-  switch (iconType) {
-    case "Xbox":
-      return <PlusSquareIcon color="red" boxSize={6} />;
-    case "PC":
-      return <SunIcon color="blue" boxSize={6} />;
-    default:
-      break;
-  }
-};
-
-const PlatformIcons = ({ data }: { data: string[] }) => {
+const PlatformIcons = ({
+  platforms,
+}: {
+  platforms: Game["parent_platforms"];
+}) => {
+  const iconMap: { [key: string]: IconType } = {
+    android: FaAndroid,
+    pc: FaWindows,
+    playstation: FaPlaystation,
+    xbox: FaXbox,
+    mac: FaApple,
+    linux: FaLinux,
+    nintendo: SiNintendo,
+    ios: MdPhoneIphone,
+    web: BsGlobe,
+  };
   return (
-    <HStack w="100%" flex={1}>
-      {data.map((d, idx) => (
-        <>{Icons(d)}</>
+    <HStack marginY={1}>
+      {platforms.map(({ platform }) => (
+        <>
+          <Icon as={iconMap[platform.slug]} color="purple.500" />
+        </>
       ))}
     </HStack>
   );
