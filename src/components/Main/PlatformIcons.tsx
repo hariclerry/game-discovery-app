@@ -31,15 +31,14 @@ const PlatformIcons = ({
   };
   return (
     <HStack marginY={1}>
-      {platforms.map(({ platform }) => (
-        <>
+      {platforms &&
+        platforms.map(({ platform }) => (
           <Icon
             as={iconMap[platform.slug]}
             color="purple.500"
             key={platform.id}
           />
-        </>
-      ))}
+        ))}
     </HStack>
   );
 };
