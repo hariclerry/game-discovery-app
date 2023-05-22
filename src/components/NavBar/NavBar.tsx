@@ -10,7 +10,13 @@ const NavBar = ({
 }) => {
   return (
     <HStack padding="30px 20px 50px 20px">
-      <Image src={gameImage} alt="logo" borderRadius="xl" boxSize="60px" />
+      <Image
+        src={gameImage}
+        alt="logo"
+        borderRadius="xl"
+        boxSize="60px"
+        objectFit="cover"
+      />
       <Search onSearch={onSearch} />
       <ColorModeSwitch />
     </HStack>
