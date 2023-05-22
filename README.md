@@ -2,6 +2,8 @@
 
 Game discovery APP is a video game discovery web app that helps you find new and interesting games to play. With Game discovery APP, you can search for games by platform, genre, and more.
 
+A clone of [rawg](https://rawg.io/), built from RAWG API
+
 ### Features
 
 With Game discovery APP you can:
@@ -37,5 +39,3 @@ With Game discovery APP you can:
 `npm run test`
 
 ### Checkout the live app [HERE](https://game-discovery-app-jet.vercel.app/)
-
-Coming soon
