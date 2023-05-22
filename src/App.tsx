@@ -3,14 +3,14 @@ import { useState } from "react";
 import "./App.css";
 import GameGrid from "./components/Main/GameGrid";
 import SideNav from "./components/Side/SideNav";
-import useGames from "./hooks/useGames";
 import NavBar from "./components/NavBar/NavBar";
 import { Genre } from "./hooks/useGenres";
+import { Platforms } from "./hooks/usePlatforms";
 
 function App() {
-  // const { isLoading } = useGames();
-
-  const [selected, setSelected] = useState("Platforms");
+  const [selectedPlatform, setSelectedPlatform] = useState<Platforms | null>(
+    null
+  );
   const [selectGenre, setSelectGenre] = useState<Genre | null>(null);
 
   return (
@@ -40,9 +40,11 @@ function App() {
 
         <GridItem pl="2" area={"main"}>
           <GameGrid
-            selected={selected}
-            onChange={setSelected}
+            selected={"selected"}
+            onChange={() => console.log()}
             selectedGenre={selectGenre}
+            selectedPlatform={selectedPlatform}
+            onSelectedPlatform={(platform) => setSelectedPlatform(platform)}
           />
         </GridItem>
       </Grid>

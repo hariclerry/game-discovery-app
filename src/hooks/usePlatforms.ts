@@ -11,7 +11,7 @@ export type Platforms = {
 const usePlatforms = () =>
   useCustomFetch<Platforms>(
     "/platforms/lists/parents"
-    // { params: { genres: selectedGenre?.id } },
-    // [selectedGenre?.id]
+    // { params: { platforms: selectedPlatform?.id } },
+    // [selectedPlatform?.id]
   );
 export default usePlatforms;

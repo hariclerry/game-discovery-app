@@ -6,17 +6,22 @@ import CardSkeleton from "./CardSkeleton";
 import CardContainer from "./CardContainer";
 import { Genre } from "../../hooks/useGenres";
 import PlatformSelector from "./PlatformSelector";
+import { Platforms } from "../../hooks/usePlatforms";
 
 const GameGrid = ({
   selected,
   onChange,
   selectedGenre,
+  onSelectedPlatform,
+  selectedPlatform,
 }: {
   selected?: string;
-  onChange: (selected: string) => void;
+  onChange?: (selected: string) => void;
   selectedGenre: Genre | null;
+  selectedPlatform: Platforms | null;
+  onSelectedPlatform: (platform: Platforms) => void;
 }) => {
-  const { data, isLoading, error } = useGames(selectedGenre);
+  const { data, isLoading, error } = useGames(selectedGenre, selectedPlatform);
   const skeletons = [1, 2, 3, 4, 5, 6];
 
   return (
@@ -26,7 +31,10 @@ const GameGrid = ({
       }
       <Heading size="2xl">Games </Heading>
       <HStack justify="space-between" gap={5} w="30%" mt={10}>
-        <PlatformSelector />
+        <PlatformSelector
+          onSelectedPlatform={onSelectedPlatform}
+          selectedPlatform={selectedPlatform}
+        />
       </HStack>
       {/* 
         <Dropdown
