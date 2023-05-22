@@ -1,13 +1,16 @@
-# Game discovery APP
+# GAME DISCOVERY APP
 
 Game discovery APP is a video game discovery web app that helps you find new and interesting games to play. With Game discovery APP, you can search for games by platform, genre, and more.
 
-### FEATURES
+### Features
 
 With Game discovery APP you can:
 
-- Filter and search for games
-- view games
+- View games
+- Search for games
+- Filter games based on Genre
+- Filter games based on platforms
+- Order/Sort games
 
 ### Requirements
 
@@ -33,6 +36,6 @@ With Game discovery APP you can:
 
 `npm run test`
 
-### Checkout the live app
+### [https://game-discovery-app-jet.vercel.app/](Checkout the live app)
 
 Coming soon
