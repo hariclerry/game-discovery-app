@@ -7,42 +7,19 @@ import CardContainer from "./CardContainer";
 import { Genre } from "../../hooks/useGenres";
 import PlatformSelector from "./PlatformSelector";
 import { Platforms } from "../../hooks/usePlatforms";
+import { GameQuery } from "../../App";
 
-const GameGrid = ({
-  selected,
-  onChange,
-  selectedGenre,
-  onSelectedPlatform,
-  selectedPlatform,
-}: {
-  selected?: string;
-  onChange?: (selected: string) => void;
-  selectedGenre: Genre | null;
-  selectedPlatform: Platforms | null;
-  onSelectedPlatform: (platform: Platforms) => void;
-}) => {
-  const { data, isLoading, error } = useGames(selectedGenre, selectedPlatform);
+interface Props {
+  gameQuery: GameQuery;
+}
+const GameGrid = ({ gameQuery }: Props) => {
+  const { data, isLoading, error } = useGames(gameQuery);
   const skeletons = [1, 2, 3, 4, 5, 6];
 
   return (
     <>
-      {
-        // error && <Text>{error} </Text>
-      }
       <Heading size="2xl">Games </Heading>
-      <HStack justify="space-between" gap={5} w="30%" mt={10}>
-        <PlatformSelector
-          onSelectedPlatform={onSelectedPlatform}
-          selectedPlatform={selectedPlatform}
-        />
-      </HStack>
-      {/* 
-        <Dropdown
-          onChange={() => console.log("clicked2")}
-          options={["This week", "Popularity"]}
-          placeholderText="Order by: Relevance"
-        />
-*/}
+
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 2, xl: 3, "2xl": 4 }}
         spacing={4}

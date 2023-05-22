@@ -1,3 +1,4 @@
+import { GameQuery } from "../App";
 import useCustomFetch from "./useCustomFetch";
 import { Genre } from "./useGenres";
 
@@ -14,13 +15,15 @@ export type Game = {
   metacritic: number;
 };
 
-const useGames = (
-  selectedGenre: Genre | null,
-  selectedPlatform: Platform | null
-) =>
+const useGames = (gameQuery: GameQuery) =>
   useCustomFetch<Game>(
     "/games",
-    { params: { genres: selectedGenre?.id, platforms: selectedPlatform?.id } },
-    [selectedGenre?.id, selectedPlatform?.id]
+    {
+      params: {
+        genres: gameQuery.genre?.id,
+        platforms: gameQuery.platform?.id,
+      },
+    },
+    [gameQuery]
   );
 export default useGames;

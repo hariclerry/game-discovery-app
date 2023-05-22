@@ -9,9 +9,5 @@ export type Platforms = {
 };
 
 const usePlatforms = () =>
-  useCustomFetch<Platforms>(
-    "/platforms/lists/parents"
-    // { params: { platforms: selectedPlatform?.id } },
-    // [selectedPlatform?.id]
-  );
+  useCustomFetch<Platforms>("/platforms/lists/parents");
 export default usePlatforms;
