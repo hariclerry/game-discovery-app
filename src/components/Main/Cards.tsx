@@ -9,14 +9,14 @@ import {
 import { Game } from "../../hooks/useGames";
 import getCroppedImageUrl from "../../services/image-url";
 import CreditScore from "./CreditScore";
+import Emoji from "./Emoji";
 import PlatformIcons from "./PlatformIcons";
 
 interface Props {
   game: Game;
-  icon: React.ReactNode;
 }
 
-const Cards = ({ game, icon }: Props) => {
+const Cards = ({ game }: Props) => {
   return (
     <Card>
       <Image src={getCroppedImageUrl(game.background_image)} alt={game.name} />
@@ -27,8 +27,8 @@ const Cards = ({ game, icon }: Props) => {
           <CreditScore score={game.metacritic} />
         </HStack>
         <Heading fontSize="2xl">{game.name}</Heading>
+        <Emoji rating={game.rating_top} />
       </CardBody>
-      <CardFooter>{icon}</CardFooter>
     </Card>
   );
 };
