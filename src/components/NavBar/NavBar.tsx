@@ -9,7 +9,7 @@ const NavBar = ({
   onSearch: (searchInputText: string) => void;
 }) => {
   return (
-    <HStack pl="10px">
+    <HStack padding="30px 20px 50px 20px">
       <Image src={gameImage} alt="logo" borderRadius="xl" boxSize="60px" />
       <Search onSearch={onSearch} />
       <ColorModeSwitch />
