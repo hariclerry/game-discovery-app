@@ -1,4 +1,4 @@
-import useCustomFetch from "./useCustomFetch";
+import { genres } from "../data/genres";
 
 export interface Genre {
   id: number;
@@ -6,6 +6,7 @@ export interface Genre {
   image_background: string;
 }
 
-const useGenres = () => useCustomFetch<Genre>("/genres");
+//fetching static data from genres mock data to avoid making request to the api
+const useGenres = () => ({ data: genres, isLoading: false, error: null });
 
 export default useGenres;

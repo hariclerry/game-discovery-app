@@ -1,11 +1,4 @@
-import {
-  Button,
-  Heading,
-  HStack,
-  List,
-  ListItem,
-  Spinner,
-} from "@chakra-ui/react";
+import { Button, Heading, HStack, List, ListItem } from "@chakra-ui/react";
 import { Image } from "@chakra-ui/react";
 import useGenres, { Genre } from "../../hooks/useGenres";
 import getCroppedImageUrl from "../../services/image-url";
@@ -17,7 +10,7 @@ const Genres = ({
   onSelectGenre: (value: Genre) => void;
   selectedGenre: Genre | null;
 }) => {
-  const { data, isLoading, error } = useGenres();
+  const { data, error } = useGenres();
 
   if (error) return null;
   return (
