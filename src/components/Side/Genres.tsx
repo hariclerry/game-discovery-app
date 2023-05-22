@@ -5,8 +5,10 @@ import getCroppedImageUrl from "../../services/image-url";
 
 const Genres = ({
   onSelectGenre,
+  selectedGenre,
 }: {
   onSelectGenre: (value: Genre) => void;
+  selectedGenre: Genre | null;
 }) => {
   const { data, isLoading, error } = useGenres();
 
@@ -25,7 +27,12 @@ const Genres = ({
                 borderRadius={8}
                 boxSize="35px"
               />
-              <Button onClick={() => onSelectGenre(genre)} fontSize="lg">
+              <Button
+                onClick={() => onSelectGenre(genre)}
+                fontSize="lg"
+                variant="ghost"
+                fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
+              >
                 {genre.name}
               </Button>
             </HStack>
@@ -35,3 +42,5 @@ const Genres = ({
     </>
   );
 };
+
+export default Genres;

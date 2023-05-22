@@ -33,6 +33,7 @@ function App() {
             <SideNav
               title="Genres"
               onSelectGenre={(genre) => setSelectGenre(genre)}
+              selectedGenre={selectGenre}
             />
           </GridItem>
         </Show>

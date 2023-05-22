@@ -1,4 +1,3 @@
-import { PlusSquareIcon, SunIcon } from "@chakra-ui/icons";
 import {
   FaWindows,
   FaPlaystation,
@@ -10,8 +9,8 @@ import {
 import { MdPhoneIphone } from "react-icons/md";
 import { SiNintendo } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
-import { HStack, Icon, Text, VStack } from "@chakra-ui/react";
-import { Game, Platform } from "../../services/game-service";
+import { HStack, Icon } from "@chakra-ui/react";
+import { Game } from "../../hooks/useGames";
 import { IconType } from "react-icons";
 
 const PlatformIcons = ({
