@@ -6,7 +6,7 @@ import {
   Heading,
   HStack,
 } from "@chakra-ui/react";
-import { Game } from "../../services/game-service";
+import { Game } from "../../hooks/useGames";
 import getCroppedImageUrl from "../../services/image-url";
 import CreditScore from "./CreditScore";
 import PlatformIcons from "./PlatformIcons";
@@ -21,7 +21,7 @@ const Cards = ({ game, icon }: Props) => {
     <Card>
       <Image src={getCroppedImageUrl(game.background_image)} alt={game.name} />
       <CardBody>
-        <HStack justifyContent="space-between">
+        <HStack justifyContent="space-between" mb={3}>
           <PlatformIcons platforms={game.parent_platforms} />
 
           <CreditScore score={game.metacritic} />
