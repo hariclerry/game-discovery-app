@@ -1,6 +1,4 @@
-import PlatformIcons from "../components/Main/PlatformIcons";
 import useCustomFetch from "./useCustomFetch";
-import { Genre } from "./useGenres";
 
 export type Platforms = {
   id: number;
@@ -8,6 +6,7 @@ export type Platforms = {
   slug: string;
 };
 
+//TODO: make platform data static like genres
 const usePlatforms = () =>
   useCustomFetch<Platforms>("/platforms/lists/parents");
 export default usePlatforms;
