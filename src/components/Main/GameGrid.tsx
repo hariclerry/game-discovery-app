@@ -7,17 +7,20 @@ import { Game } from "../../hooks/useGames";
 import useGames from "../../hooks/useGames";
 import CardSkeleton from "./CardSkeleton";
 import CardContainer from "./CardContainer";
+import { Genre } from "../../hooks/useGenres";
 
 const GameGrid = ({
   selected,
   onChange,
+  selectedGenre,
 }: {
   selected?: string;
   onChange: (selected: string) => void;
+  selectedGenre: Genre | null;
 }) => {
-  const { data, isLoading, error } = useGames();
+  const { data, isLoading, error } = useGames(selectedGenre);
   const skeletons = [1, 2, 3, 4, 5, 6];
-  // console.log("herregamesss-----", games);
+
   return (
     <>
       {
@@ -43,8 +46,8 @@ const GameGrid = ({
       >
         {isLoading &&
           skeletons.map((skeleton) => (
-            <CardContainer>
-              <CardSkeleton key={skeleton} />
+            <CardContainer key={skeleton}>
+              <CardSkeleton />
             </CardContainer>
           ))}
         {data.map((game, index) => (

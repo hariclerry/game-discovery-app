@@ -1,4 +1,5 @@
 import useCustomFetch from "./useCustomFetch";
+import { Genre } from "./useGenres";
 
 export type Platform = {
   id: number;
@@ -13,5 +14,8 @@ export type Game = {
   metacritic: number;
 };
 
-const useGames = () => useCustomFetch<Game>("/games");
+const useGames = (selectedGenre: Genre | null) =>
+  useCustomFetch<Game>("/games", { params: { genres: selectedGenre?.id } }, [
+    selectedGenre?.id,
+  ]);
 export default useGames;

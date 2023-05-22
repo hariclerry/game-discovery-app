@@ -1,30 +1,20 @@
-import { CircularProgress, Grid, GridItem, Show } from "@chakra-ui/react";
+import { Grid, GridItem, Show } from "@chakra-ui/react";
 import { useState } from "react";
 import "./App.css";
-import { genres, items } from "./components/data";
 import GameGrid from "./components/Main/GameGrid";
 import SideNav from "./components/Side/SideNav";
 import useGames from "./hooks/useGames";
 import NavBar from "./components/NavBar/NavBar";
+import { Genre } from "./hooks/useGenres";
 
 function App() {
-  const { isLoading } = useGames();
+  // const { isLoading } = useGames();
 
   const [selected, setSelected] = useState("Platforms");
-  const filteredItems = () => {
-    if (selected === "Platforms") return items;
-    return items
-      .map((item) => {
-        const platform = selected && item.platform.includes(selected);
-        return platform ? item : null;
-      })
-      .filter((item) => item !== null);
-  };
-  const filtered = filteredItems();
+  const [selectGenre, setSelectGenre] = useState<Genre | null>(null);
 
   return (
     <>
-      {isLoading && <CircularProgress value={30} size="120px" />}
       <Grid
         templateAreas={{
           base: `"nav" "main"`,
@@ -40,12 +30,19 @@ function App() {
         </GridItem>
         <Show above="lg">
           <GridItem paddingX="5" area={"aside"}>
-            <SideNav title="Genres" genres={genres} />
+            <SideNav
+              title="Genres"
+              onSelectGenre={(genre) => setSelectGenre(genre)}
+            />
           </GridItem>
         </Show>
 
         <GridItem pl="2" area={"main"}>
-          <GameGrid selected={selected} onChange={setSelected} />
+          <GameGrid
+            selected={selected}
+            onChange={setSelected}
+            selectedGenre={selectGenre}
+          />
         </GridItem>
       </Grid>
     </>
