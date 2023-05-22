@@ -17,7 +17,7 @@ With Game discovery APP you can:
 - Node v12.0.0
 - React.js framework
 - Typescript
-- Vite(scaffolded using vite) - [https://vitejs.dev/guide/](A build tool that aims to provide a faster and leaner development experience for modern web projects.)
+- Vite(scaffolded using vite) - [A build tool that aims to provide a faster and leaner development experience for modern web projects.](https://vitejs.dev/guide/)
 
 ### Installation
 
@@ -36,6 +36,6 @@ With Game discovery APP you can:
 
 `npm run test`
 
-### [https://game-discovery-app-jet.vercel.app/](Checkout the live app)
+### Checkout the live app [HERE](https://game-discovery-app-jet.vercel.app/)
 
 Coming soon
