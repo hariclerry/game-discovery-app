@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar/NavBar";
 import { Genre } from "./hooks/useGenres";
 import { Platforms } from "./hooks/usePlatforms";
 import PlatformSelector from "./components/Main/PlatformSelector";
+import SortSelector from "./components/Main/SortSelector";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -24,7 +25,7 @@ function App() {
         }}
         templateColumns={{
           base: "1fr",
-          lg: "200px 1fr",
+          lg: "300px 1fr",
         }}
       >
         <GridItem area={"nav"}>
@@ -41,13 +42,14 @@ function App() {
         </Show>
 
         <GridItem pl="2" area={"main"}>
-          <HStack justify="space-between" gap={5} w="30%" mt={10}>
+          <HStack padding={2} spacing={5} mb={5}>
             <PlatformSelector
               selectedPlatform={gameQuery.platform}
               onSelectedPlatform={(platform) =>
                 setGameQuery({ ...gameQuery, platform })
               }
             />
+            <SortSelector />
           </HStack>
           <GameGrid gameQuery={gameQuery} />
         </GridItem>

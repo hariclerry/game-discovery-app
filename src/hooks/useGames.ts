@@ -1,6 +1,5 @@
 import { GameQuery } from "../App";
 import useCustomFetch from "./useCustomFetch";
-import { Genre } from "./useGenres";
 
 export type Platform = {
   id: number;
