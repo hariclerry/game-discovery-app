@@ -18,7 +18,7 @@ const Genres = ({
         Genres
       </Heading>
 
-      <List>
+      <List overflow="auto" height="100%">
         {data?.results.map((genre) => (
           <ListItem key={genre.id} paddingY="10px">
             <HStack key={genre.id}>

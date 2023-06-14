@@ -44,7 +44,13 @@ function App() {
           />
         </GridItem>
         <Show above="lg">
-          <GridItem paddingX={5} area="aside" mt="150">
+          <GridItem
+            paddingX={5}
+            area="aside"
+            mt="150"
+            position="fixed"
+            height="100%"
+          >
             <SideNav
               onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
               selectedGenre={gameQuery.genre}
