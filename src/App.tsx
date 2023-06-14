@@ -30,7 +30,13 @@ function App() {
           lg: "250px 1fr",
         }}
       >
-        <GridItem area="nav">
+        <GridItem
+          area="nav"
+          position="fixed"
+          backdropFilter="saturate(180%) blur(20px)"
+          zIndex={3}
+          w="100%"
+        >
           <NavBar
             onSearch={(searchInputText) =>
               setGameQuery({ ...gameQuery, searchInputText })
@@ -38,7 +44,7 @@ function App() {
           />
         </GridItem>
         <Show above="lg">
-          <GridItem paddingX={5} area="aside">
+          <GridItem paddingX={5} area="aside" mt="150">
             <SideNav
               onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
               selectedGenre={gameQuery.genre}
@@ -46,7 +52,7 @@ function App() {
           </GridItem>
         </Show>
 
-        <GridItem area="main">
+        <GridItem area="main" mt="150">
           <Box paddingLeft={2}>
             <GameHeading gameQuery={gameQuery} />
             <Flex marginBottom={5} mt={8}>
