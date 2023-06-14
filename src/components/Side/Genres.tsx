@@ -11,7 +11,6 @@ const Genres = ({
   selectedGenre: Genre | null;
 }) => {
   const { data, error } = useGenres();
-
   if (error) return null;
   return (
     <>
@@ -20,7 +19,7 @@ const Genres = ({
       </Heading>
 
       <List>
-        {data.map((genre) => (
+        {data?.results.map((genre) => (
           <ListItem key={genre.id} paddingY="10px">
             <HStack key={genre.id}>
               <Image

@@ -1,5 +1,6 @@
+import { useQuery } from "@tanstack/react-query";
 import { GameQuery } from "../App";
-import useCustomFetch from "./useCustomFetch";
+import apiClients, { FetchResponse } from "../services/api-clients";
 
 export type Platform = {
   id: number;
@@ -15,17 +16,21 @@ export type Game = {
   rating_top: number;
 };
 
-const useGames = (gameQuery: GameQuery) =>
-  useCustomFetch<Game>(
-    "/games",
-    {
-      params: {
-        genres: gameQuery.genre?.id,
-        platforms: gameQuery.platform?.id,
-        ordering: gameQuery.sortOrder,
-        search: gameQuery.searchInputText,
-      },
-    },
-    [gameQuery]
-  );
+const useGames = (gameQuery: GameQuery) => {
+  return useQuery<FetchResponse<Game>, Error>({
+    queryKey: ["games", gameQuery],
+    queryFn: () =>
+      apiClients
+        .get<FetchResponse<Game>>("/games", {
+          params: {
+            genres: gameQuery.genre?.id,
+            parent_platforms: gameQuery.platform?.id,
+            ordering: gameQuery.sortOrder,
+            search: gameQuery.searchInputText,
+          },
+        })
+        .then((res) => res.data),
+    staleTime: 10 * 1000,
+  });
+};
 export default useGames;
