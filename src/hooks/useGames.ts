@@ -1,4 +1,5 @@
-import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
+import ms from "ms";
 import { GameQuery } from "../App";
 import ApiClient, { FetchResponse } from "../services/api-clients";
 import { Platform } from "./usePlatforms";
@@ -11,11 +12,6 @@ export type Game = {
   metacritic: number;
   rating_top: number;
 };
-
-interface GQuery {
-  //   page: number;
-  pageSize: number;
-}
 
 const apiClient = new ApiClient<Game>("/games");
 
@@ -36,7 +32,7 @@ const useGames = (gameQuery: GameQuery) => {
     getNextPageParam: (lastPage, allPages) => {
       return lastPage.next ? allPages.length + 1 : undefined;
     },
-    staleTime: 24 * 60 * 60 * 1000, // 24 hours
+    staleTime: ms("24h"), // 24 hours
   });
 };
 export default useGames;
