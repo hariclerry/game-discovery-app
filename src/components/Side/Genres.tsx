@@ -5,10 +5,10 @@ import getCroppedImageUrl from "../../services/image-url";
 
 const Genres = ({
   onSelectGenre,
-  selectedGenre,
+  selectedGenreId,
 }: {
   onSelectGenre: (value: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }) => {
   const { data, error } = useGenres();
   if (error) return null;
@@ -33,7 +33,7 @@ const Genres = ({
                 onClick={() => onSelectGenre(genre)}
                 fontSize="lg"
                 variant="ghost"
-                fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
+                fontWeight={genre.id === selectedGenreId ? "bold" : "normal"}
                 whiteSpace="normal"
                 textAlign="left"
               >

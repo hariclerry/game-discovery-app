@@ -3,12 +3,14 @@ import Genres from "./Genres";
 
 const SideNav = ({
   onSelectGenre,
-  selectedGenre,
+  selectedGenreId,
 }: {
   onSelectGenre: (value: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }) => {
-  return <Genres onSelectGenre={onSelectGenre} selectedGenre={selectedGenre} />;
+  return (
+    <Genres onSelectGenre={onSelectGenre} selectedGenreId={selectedGenreId} />
+  );
 };
 
 export default SideNav;
