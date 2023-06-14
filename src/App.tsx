@@ -5,14 +5,14 @@ import GameGrid from "./components/Main/GameGrid";
 import SideNav from "./components/Side/SideNav";
 import NavBar from "./components/NavBar/NavBar";
 import { Genre } from "./hooks/useGenres";
-import { Platforms } from "./hooks/usePlatforms";
+import { Platform } from "./hooks/usePlatforms";
 import PlatformSelector from "./components/Main/PlatformSelector";
 import SortSelector from "./components/Main/SortSelector";
 import GameHeading from "./components/Main/GameHeading";
 
 export interface GameQuery {
   genre: Genre | null;
-  platform: Platforms | null;
+  platform: Platform | null;
   sortOrder: string;
   searchInputText: string;
 }
