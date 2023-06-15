@@ -3,11 +3,7 @@ import Search from "./Search";
 import gameImage from "../../assets/game_unsplash.jpg";
 import ColorModeSwitch from "./ColorModeSwitch";
 
-const NavBar = ({
-  onSearch,
-}: {
-  onSearch: (searchInputText: string) => void;
-}) => {
+const NavBar = () => {
   return (
     <HStack padding="30px 20px 10px 20px">
       <Image
@@ -17,7 +13,7 @@ const NavBar = ({
         boxSize="60px"
         objectFit="cover"
       />
-      <Search onSearch={onSearch} />
+      <Search />
       <ColorModeSwitch />
     </HStack>
   );

@@ -1,16 +1,21 @@
-import { Button, Heading, HStack, List, ListItem } from "@chakra-ui/react";
-import { Image } from "@chakra-ui/react";
-import useGenres, { Genre } from "../../hooks/useGenres";
+import {
+  Button,
+  Heading,
+  HStack,
+  Image,
+  List,
+  ListItem,
+} from "@chakra-ui/react";
+import useGenres from "../../hooks/useGenres";
 import getCroppedImageUrl from "../../services/image-url";
+import useGameQuery from "../../store/store";
 
-const Genres = ({
-  onSelectGenre,
-  selectedGenreId,
-}: {
-  onSelectGenre: (value: Genre) => void;
-  selectedGenreId?: number;
-}) => {
+const Genres = () => {
   const { data, error } = useGenres();
+  // Pass a selector to zustand to prevent re-render incase any changes from other component
+  const selectedGenreId = useGameQuery((s) => s.gameQuery.genreId);
+  const setGenreId = useGameQuery((s) => s.setGenreId);
+
   if (error) return null;
   return (
     <>
@@ -30,7 +35,7 @@ const Genres = ({
                 objectFit="cover"
               />
               <Button
-                onClick={() => onSelectGenre(genre)}
+                onClick={() => setGenreId(genre.id)}
                 fontSize="lg"
                 variant="ghost"
                 fontWeight={genre.id === selectedGenreId ? "bold" : "normal"}
