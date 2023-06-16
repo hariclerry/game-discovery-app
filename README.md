@@ -20,6 +20,7 @@ With Game discovery APP you can:
 - React.js framework
 - Typescript
 - Chakra UI
+- React Router
 - React query (data management and caching)
 - [react-infinite-scroll-component](https://github.com/ankeetmaini/react-infinite-scroll-component#readme)
 - Vite(scaffolded using vite) - [A build tool that aims to provide a faster and leaner development experience for modern web projects.](https://vitejs.dev/guide/)

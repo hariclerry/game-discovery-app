@@ -1,34 +1,23 @@
-import { Box, Flex, Grid, GridItem, Show } from "@chakra-ui/react";
-import "./App.css";
-import GameGrid from "./components/Main/GameGrid";
-import GameHeading from "./components/Main/GameHeading";
-import PlatformSelector from "./components/Main/PlatformSelector";
-import SortSelector from "./components/Main/SortSelector";
-import NavBar from "./components/NavBar/NavBar";
-import Genres from "./components/Side/Genres";
+import { Grid, GridItem, Flex, Box, Show } from "@chakra-ui/react";
+import GameGrid from "../components/Main/GameGrid";
+import GameHeading from "../components/Main/GameHeading";
+import PlatformSelector from "../components/Main/PlatformSelector";
+import SortSelector from "../components/Main/SortSelector";
+import Genres from "../components/Side/Genres";
 
-function App() {
+const HomePage = () => {
   return (
     <>
       <Grid
         templateAreas={{
-          base: `"nav" "main"`,
-          lg: `"nav nav" "aside main"`,
+          base: `"main"`,
+          lg: `"aside main"`,
         }}
         templateColumns={{
           base: "1fr",
           lg: "250px 1fr",
         }}
       >
-        <GridItem
-          area="nav"
-          position="fixed"
-          backdropFilter="saturate(180%) blur(20px)"
-          zIndex={3}
-          w="100%"
-        >
-          <NavBar />
-        </GridItem>
         <Show above="lg">
           <GridItem
             paddingX={5}
@@ -56,6 +45,6 @@ function App() {
       </Grid>
     </>
   );
-}
+};
 
-export default App;
+export default HomePage;
