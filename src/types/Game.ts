@@ -5,6 +5,13 @@ type publisher = {
   id: number;
   name: string;
 };
+
+export type GameTrailerType = {
+  id: number;
+  name: string;
+  preview: string;
+  data: { 480: string; max: string };
+};
 export type Game = {
   id: number;
   name: string;
