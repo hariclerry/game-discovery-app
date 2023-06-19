@@ -8,7 +8,13 @@ const GameTrailer = ({ gameId }: { gameId?: number }) => {
   if (error) throw Error();
 
   const first = data?.results[0];
-  return <video src={first?.data[480]} poster={first?.preview} controls />;
+  return (
+    <>
+      {!data?.results.length ? null : (
+        <video src={first?.data[480]} poster={first?.preview} controls />
+      )}
+    </>
+  );
 };
 
 export default GameTrailer;
