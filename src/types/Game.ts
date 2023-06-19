@@ -12,6 +12,13 @@ export type GameTrailerType = {
   preview: string;
   data: { 480: string; max: string };
 };
+
+export type Screenshot = {
+  id: number;
+  image: string;
+  width: number;
+  height: number;
+};
 export type Game = {
   id: number;
   name: string;

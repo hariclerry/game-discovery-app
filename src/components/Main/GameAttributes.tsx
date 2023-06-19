@@ -6,7 +6,7 @@ import CreditScore from "./CreditScore";
 const GameAttributes = ({ game }: { game: Game }) => {
   return (
     <>
-      <SimpleGrid columns={2} as="dl">
+      <SimpleGrid columns={2} as="dl" pt={4}>
         <DefinitionItem
           title="Platforms"
           content={game.parent_platforms?.map(({ platform }) => (
