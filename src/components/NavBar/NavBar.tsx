@@ -1,4 +1,5 @@
-import { Flex, GridItem, HStack, Image } from "@chakra-ui/react";
+import { HStack, Image } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import gameImage from "../../assets/game_unsplash.jpg";
 import ColorModeSwitch from "./ColorModeSwitch";
 import Search from "./Search";
@@ -12,13 +13,15 @@ const NavBar = () => {
       zIndex={3}
       w="100%"
     >
-      <Image
-        src={gameImage}
-        alt="logo"
-        borderRadius="xl"
-        boxSize="60px"
-        objectFit="cover"
-      />
+      <Link to="/">
+        <Image
+          src={gameImage}
+          alt="logo"
+          borderRadius="xl"
+          boxSize="80px"
+          objectFit="cover"
+        />
+      </Link>
       <Search />
       <ColorModeSwitch />
     </HStack>
