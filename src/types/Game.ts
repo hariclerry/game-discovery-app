@@ -1,5 +1,10 @@
+import { Genre } from "./Genre";
 import { Platform } from "./Platform";
 
+type publisher = {
+  id: number;
+  name: string;
+};
 export type Game = {
   id: number;
   name: string;
@@ -9,4 +14,6 @@ export type Game = {
   rating_top: number;
   slug: string;
   description_raw: string;
+  publishers: publisher[];
+  genres: Genre[];
 };
